@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".HelpPage">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="2500dp"
+        android:contentDescription="@string/up_to_15_past_sessions"
+        android:fillViewport="true"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardview_dark_background">
+
+            <Button
+                android:id="@+id/BackToMainPage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="@string/Back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/General_Text"
+                android:layout_width="320dp"
+                android:layout_height="wrap_content"
+                android:text="This app consists of many functions. Below will name a function and how it works."
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toStartOf="@+id/BackToMainPage"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:id="@+id/Login_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Login:"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Create_Info" />
+
+            <TextView
+                android:id="@+id/Automatic_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="This mode takes in the audio of the gun that is currently being shot and will inform the camera to take a picture of the newly updated target once the recording is confirmed to be similar to the practice shots. This allows the user to have a hands free experience of the app and can focus on their shooting "
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Automatic_Title" />
+
+            <TextView
+                android:id="@+id/Manual_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Manual Mode:"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Automatic_info" />
+
+            <TextView
+                android:id="@+id/Finished_Sessions_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Finished Sessions: "
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Manual_info" />
+
+            <TextView
+                android:id="@+id/Past_Sessions_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Past Sessions:"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Finished_Sessions_Info" />
+
+            <TextView
+                android:id="@+id/Automatic_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Automatic mode:"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Login_Info" />
+
+            <TextView
+                android:id="@+id/Login_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="To login click on the login button where you will be sent to a login page. Users will then need to enter their email address and password to login. If email and password match the user's profile, they will be logged in. Otherwise the user will be prompted to try again."
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Login_Title" />
+
+            <TextView
+                android:id="@+id/Manual_info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="If manual is chosen, the user will be sent to the camera page. On this page the user will be informed to take a picture of the target. Once the picture is taken the user may begin taking shots. The user will have to press the camera button that is located near the bottom of the screen to take another picture. Once the second picture is taken, the app will begin processing the data. "
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Manual_Title" />
+
+            <TextView
+                android:id="@+id/Finished_Sessions_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                android:text="The user can reach this page by clicking either on a past session that was saved or by clicking the finish button on the camera page. On this page the user will see the most recent picture taken from the camera and the statistics. If the user clicks on “save session” the user will then be sent to the past sessions page to where they can choose which session will be saved. Otherwise once they are done looking at their statistics they can press the finish button which will send them back to the front page."
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Finished_Sessions_Title" />
+
+            <TextView
+                android:id="@+id/Past_Subtext"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="(this will only be useable if a user creates an account)"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Past_Sessions_Title" />
+
+            <TextView
+                android:id="@+id/Past_Session_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="If past sessions is chosen the user will be sent to the past sessions page. On this page the user will see 15 session buttons. These buttons are mapped to the finished session page. If a session’s button that has information previously saved to it, gets pressed, then the user will be sent to the data sessions page, and can view said data."
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Past_Subtext" />
+
+            <TextView
+                android:id="@+id/Create_Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="Creating a Profile:"
+                android:textAllCaps="true"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/General_Text" />
+
+            <TextView
+                android:id="@+id/Create_Info"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Users will need to click on the ‘Sign Up’ button to create a new profile. From there they will be prompted for name, email address, and a secure password. Once entered click on Create profile. If the email address is unique it will state ‘Sign Up Successfully’"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/Create_Title" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </ScrollView>
+</RelativeLayout>

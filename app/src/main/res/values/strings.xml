@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Main Page-Range Buddy</string>
+    <string name="up_to_30_past_sessions">Up to 30 past sessions</string>
+    <string name="manual">Manual</string>
+    <string name="automatic">Automatic</string>
+    <string name="past_sessions">Past Sessions</string>
+    <string name="help">Help</string>
+    <string name="range_buddy">Range Buddy</string>
+    <string name="Group">Group</string>
+    <string name="Finish">Finish</string>
+    <string name="Back">Back</string>
+    <string name="take_picture">Take Picture</string>
+    <string name="target" />
+    <string name="up_to_15_past_sessions" />
+    <string name="start_session">Start Session</string>
+    <string name="login">Login</string>
+</resources>

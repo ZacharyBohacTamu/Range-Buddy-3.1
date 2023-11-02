@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PastSessions">
+
+    <ScrollView
+        android:contentDescription="@string/up_to_15_past_sessions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp"
+        android:fillViewport="true">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardview_dark_background">
+
+            <Button
+
+                android:id="@+id/session_15"
+                android:layout_width="340dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="Session 15"
+                app:layout_constraintEnd_toEndOf="@+id/session_14"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_14"
+                app:layout_constraintTop_toBottomOf="@+id/session_14" />
+
+            <Button
+
+                android:id="@+id/session_14"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 14"
+                app:layout_constraintEnd_toEndOf="@+id/session_13"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_13"
+                app:layout_constraintTop_toBottomOf="@+id/session_13" />
+
+            <Button
+
+                android:id="@+id/session_13"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 13"
+                app:layout_constraintEnd_toEndOf="@+id/session_12"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_12"
+                app:layout_constraintTop_toBottomOf="@+id/session_12" />
+
+            <Button
+
+                android:id="@+id/session_12"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 12"
+                app:layout_constraintEnd_toEndOf="@+id/session_11"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_11"
+                app:layout_constraintTop_toBottomOf="@+id/session_11" />
+
+            <Button
+
+                android:id="@+id/session_10"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 10"
+                app:layout_constraintEnd_toEndOf="@+id/session_9"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_9"
+                app:layout_constraintTop_toBottomOf="@+id/session_9" />
+
+            <Button
+
+                android:id="@+id/session_9"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 9"
+                app:layout_constraintEnd_toEndOf="@+id/session_8"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_8"
+                app:layout_constraintTop_toBottomOf="@+id/session_8" />
+
+            <Button
+
+                android:id="@+id/session_8"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 8"
+                app:layout_constraintEnd_toEndOf="@+id/session_7"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_7"
+                app:layout_constraintTop_toBottomOf="@+id/session_7" />
+
+            <Button
+
+                android:id="@+id/session_11"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 11"
+                app:layout_constraintEnd_toEndOf="@+id/session_10"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_10"
+                app:layout_constraintTop_toBottomOf="@+id/session_10" />
+
+            <Button
+                android:id="@+id/session_7"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 7"
+                app:layout_constraintEnd_toEndOf="@+id/session_6"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_6"
+                app:layout_constraintTop_toBottomOf="@+id/session_6" />
+
+            <Button
+
+                android:id="@+id/session_4"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 4"
+                app:layout_constraintEnd_toEndOf="@+id/session_3"
+                app:layout_constraintStart_toStartOf="@+id/session_3"
+                app:layout_constraintTop_toBottomOf="@+id/session_3" />
+
+            <Button
+                android:id="@+id/session_6"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 6"
+                app:layout_constraintEnd_toEndOf="@+id/session_5"
+                app:layout_constraintStart_toStartOf="@+id/session_5"
+                app:layout_constraintTop_toBottomOf="@+id/session_5" />
+
+            <Button
+                android:id="@+id/session_5"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 5"
+                app:layout_constraintEnd_toEndOf="@+id/session_4"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_4"
+                app:layout_constraintTop_toBottomOf="@+id/session_4" />
+
+            <Button
+
+                android:id="@+id/session_1"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="56dp"
+                android:text="Session 1"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.494"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/session_2"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 2"
+                app:layout_constraintEnd_toEndOf="@+id/session_1"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_1"
+                app:layout_constraintTop_toBottomOf="@+id/session_1" />
+
+            <Button
+                android:id="@+id/session_3"
+                android:layout_width="340dp"
+                android:layout_height="60dp"
+                android:layout_marginTop="20dp"
+                android:text="Session 3"
+                app:layout_constraintEnd_toEndOf="@+id/session_2"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/session_2"
+                app:layout_constraintTop_toBottomOf="@+id/session_2" />
+
+            <Button
+                android:id="@+id/BackToMainPage1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/Back"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.99"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+</RelativeLayout>
