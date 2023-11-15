@@ -24,7 +24,11 @@ class PastSessions : AppCompatActivity() {
     private lateinit var ToSessionData13: Button
     private lateinit var ToSessionData14: Button
     private lateinit var ToSessionData15: Button
-
+    private lateinit var ToSessionData16: Button
+    private lateinit var ToSessionData17: Button
+    private lateinit var ToSessionData18: Button
+    private lateinit var ToSessionData19: Button
+    private lateinit var ToSessionData20: Button
 
 
 
@@ -124,6 +128,36 @@ class PastSessions : AppCompatActivity() {
         //session 15
         ToSessionData15 = findViewById(R.id.session_15)
         ToSessionData15.setOnClickListener {
+            val Session = Intent(this, SessionsData::class.java)
+            startActivity(Session)
+        }
+        //session 16
+        ToSessionData16 = findViewById(R.id.session_16)
+        ToSessionData16.setOnClickListener {
+            val Session = Intent(this, SessionsData::class.java)
+            startActivity(Session)
+        }
+        //session 17
+        ToSessionData17 = findViewById(R.id.session_17)
+        ToSessionData17.setOnClickListener {
+            val Session = Intent(this, SessionsData::class.java)
+            startActivity(Session)
+        }
+        //session 18
+        ToSessionData18 = findViewById(R.id.session_18)
+        ToSessionData18.setOnClickListener {
+            val Session = Intent(this, SessionsData::class.java)
+            startActivity(Session)
+        }
+        //session 19
+        ToSessionData19 = findViewById(R.id.session_19)
+        ToSessionData19.setOnClickListener {
+            val Session = Intent(this, SessionsData::class.java)
+            startActivity(Session)
+        }
+        //session 20
+        ToSessionData20 = findViewById(R.id.session_20)
+        ToSessionData20.setOnClickListener {
             val Session = Intent(this, SessionsData::class.java)
             startActivity(Session)
         }

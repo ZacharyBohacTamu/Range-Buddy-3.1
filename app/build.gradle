@@ -84,4 +84,8 @@ dependencies {
     implementation 'io.grpc:grpc-okhttp:1.38.1'
     implementation 'io.grpc:grpc-stub:1.38.1'
     implementation 'com.google.api:gax:1.58.0'
+
+    //Images
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 }

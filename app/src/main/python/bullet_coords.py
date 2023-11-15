@@ -1,15 +1,18 @@
 import cv2
-import math
+
 
 
 # BULLET_COORDS
 # FINDS CENTER EACH BULLET HOLE AND PUTS THEM INTO LIST
 def bullet_coords(input_image):
     # Reads image
-    img = cv2.imread(input_image, 0)
+    img = cv2.imread(input_image)
+
+    # convert to grayscale so cv2 can find contours
+    img_gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
 
     # Sets up a threshold to separate wht & blk pixels
-    _, Threshold = cv2.threshold(img, 200, 255, cv2.THRESH_BINARY)
+    _, Threshold = cv2.threshold(img_gray, 200, 255, cv2.THRESH_BINARY)
 
     # Find contours in the threshold image
     Bullet_Hole, _ = cv2.findContours(Threshold, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)

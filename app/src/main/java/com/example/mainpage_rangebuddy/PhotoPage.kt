@@ -33,6 +33,9 @@ import com.google.cloud.speech.v1.RecognizeRequest
 import com.google.cloud.speech.v1.SpeechClient
 import com.google.cloud.speech.v1.SpeechSettings
 import com.google.protobuf.ByteString
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.delay
+import kotlinx.coroutines.launch
 import java.io.ByteArrayOutputStream
 import java.io.File
 import java.io.IOException
@@ -43,16 +46,15 @@ import java.util.concurrent.Executors
 
 
 class PhotoPage : AppCompatActivity() {
-    //ui functions variables
+    //UI Functions Variables
     private lateinit var ToSessionData: Button
-    //Picture function variables
+    //Picture Function Variables
     lateinit var binding: ActivityPhotoPageBinding
     private var imageCapture: ImageCapture? = null
     private lateinit var outputDirectory: File
     private lateinit var cameraExecutor: ExecutorService
-    //private lateinit var startButton: Button
     private val resultTextView: TextView? = null
-    //private var progressBar: ProgressBar? = null
+    // Audio Recording Variables
     private var permissionToRecordAccepted = false
     private val permissions = arrayOf(Manifest.permission.RECORD_AUDIO)
     private var recordingThread: Thread? = null
@@ -89,19 +91,17 @@ class PhotoPage : AppCompatActivity() {
         ActivityCompat.requestPermissions(this, permissions,
             REQUEST_RECORD_AUDIO_PERMISSION
         )
-        //startButton = findViewById(R.id.start_button)
-        //progressBar = findViewById(R.id.progress_bar)
-
-
+        // initialize the speech Client
         initializeSpeechClient()
 
         //hiding the title bar
-        //supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
+        supportRequestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
 
         //setting variables to use in the xml
         binding = ActivityPhotoPageBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        // permissions to record audio
         binding.startButton.setOnClickListener(View.OnClickListener {
             if (permissionToRecordAccepted) {
                 if (binding.startButton.getText().toString() == "Start Recording") {
@@ -115,9 +115,7 @@ class PhotoPage : AppCompatActivity() {
         outputDirectory = getOutputDirectory()
         cameraExecutor = Executors.newSingleThreadExecutor()
 
-
-
-        //begins code of starting up the camera if Perms are granted
+        //checks if permissions for camera are granted
         if (allPermissionGranted()) {
             startCamera()
         } else {
@@ -129,17 +127,6 @@ class PhotoPage : AppCompatActivity() {
         }
         binding.btnTakePicture.setOnClickListener {
             takePhoto()
-        }
-
-
-
-
-
-        //toast for stating set has been grouped by pressing Grouping button
-        val grouping = findViewById<Button>(R.id.Grouping)
-        grouping.setOnClickListener {
-            //comparisonCall()
-            Toast.makeText(this, "Set Grouped", Toast.LENGTH_SHORT).show()
         }
 
         //button mapping to other pages
@@ -293,6 +280,10 @@ class PhotoPage : AppCompatActivity() {
                 // Perform actions associated with the keyword detection
                 stopVoiceRecorder()
                 performKeywordAction()
+                GlobalScope.launch {
+                    delay(timeMillis = 5000) // change this to give more time for demo
+                    takePhoto()
+                }
             }
         }
     }
@@ -383,6 +374,7 @@ class PhotoPage : AppCompatActivity() {
     private fun performKeywordAction() {
         Toast.makeText(this, "Keyword detected!", Toast.LENGTH_SHORT).show()
         takePhoto()
+
         /*val file = File(filesDir.path +"/pictures/image.png")
         file.mkdirs()
         file.createNewFile()

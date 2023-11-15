@@ -1,5 +1,6 @@
 package com.example.mainpage_rangebuddy
 
+import android.annotation.SuppressLint
 import android.content.ContentResolver
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -8,9 +9,11 @@ import android.provider.MediaStore
 import android.util.Log
 import android.view.Window
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
+import com.bumptech.glide.Glide
 import com.chaquo.python.Python
 import com.chaquo.python.android.AndroidPlatform
 import com.example.mainpage_rangebuddy.models.Data
@@ -36,10 +39,24 @@ class SessionsData : AppCompatActivity() {
 
         //viewModel.postData(Profile(0,"zahra.mehedi12@gmail.com", "Zahra Test", "pasword123"))
         viewModel.datapoint(Data(5.0f, 5f))
+
+
         //comparison button
         comparison = findViewById(R.id.Test_button)
         comparison.setOnClickListener {
             Image_Processing()
+        }
+
+        // Code to update the image view with the most recent image
+        val imageView = findViewById<ImageView>(R.id.imageView)
+        val dP = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/"
+        val iC = 2
+
+        val recentImages = contentResolver.imagegrabber(dP, iC)
+        if (recentImages.isNotEmpty()) {
+            Glide.with(this).load(File(recentImages[1])).into(imageView) // add what ins build.gradle
+        } else {
+            imageView.setImageResource(R.drawable.target)
         }
 
         //save session
@@ -101,6 +118,7 @@ class SessionsData : AppCompatActivity() {
     }
 
     //python calling functions
+    @SuppressLint("SetTextI18n")
     private fun Image_Processing() {
         if (!Python.isStarted()) {
             Python.start(AndroidPlatform(this))
@@ -114,7 +132,7 @@ class SessionsData : AppCompatActivity() {
         val pyobj3 = py.getModule("Point_Calcs")
         //sets variables  for image grabbing function
         val directoryPath = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/"
-        val output_image = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/bullets/Bullet_Holes.jpg"
+        val output_image = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/Bullet_Holes.jpg"
 
         // Check if the directory exists
         val directory = File(directoryPath)
@@ -126,12 +144,11 @@ class SessionsData : AppCompatActivity() {
             Log.e("DirectoryCheck", "Directory does not exist at path: $directoryPath")
         }
 
+        // sets the amount of images its grabbing
         val imageCount = 2
         val images = contentResolver.imagegrabber(directoryPath, imageCount)
         //calls the python function
 
-        // val image1 = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/Target_1.jpg"
-        // val image2 = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/Target_3.jpg"
         Toast.makeText(this, "comparison is beginning to run", Toast.LENGTH_SHORT).show()
 
         val bullet_image = pyobj.callAttr("comparison", images[0], images[1], output_image) // image[0], image[1], output_image
@@ -143,12 +160,13 @@ class SessionsData : AppCompatActivity() {
         Toast.makeText(this, "bullet_coords is finished running", Toast.LENGTH_LONG).show()
 
         val bullet_group = pyobj2.callAttr("Grouping", bullets_XnY) // data to send to back end
+        val bullet_groupValue = bullet_group.toDouble()
         Log.d("Python function Grouping is being ran", bullet_group.toString())
         Toast.makeText(this, "Grouping is finished running", Toast.LENGTH_LONG).show()
         //update text to be new text
+        val formatcals = String.format("Bullet Group: %.3f in", bullet_groupValue)
         val bulletgroupTextView = findViewById<TextView>(R.id.Group_Size)
-        bulletgroupTextView.text = "Bullet Group: $bullet_group in"
-
+        bulletgroupTextView.text = formatcals
 
         val point_calc = pyobj3.callAttr("Point_Calcs", bullets_XnY, bullet_image) //data to send to back end
         Log.d("Python function Point_Calcs is being ran", point_calc.toString())
@@ -156,10 +174,6 @@ class SessionsData : AppCompatActivity() {
         val pointcalcTextView = findViewById<TextView>(R.id.Number_of_points)
         pointcalcTextView.text = "Point Calculation: $point_calc"
 
-        // setting the text views to newly calculated values
-
-
-        //pointCalcTextView.text = "Point Calculation: $point_calc"
 
     }
 

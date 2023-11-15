@@ -77,7 +77,7 @@ class SpeechToText1 : AppCompatActivity() {
     }
 
     private fun initializeSpeechClient() {
-        try {
+        /*try {
             val credentials =
                 GoogleCredentials.fromStream(resources.openRawResource(R.raw.credentials))
             val credentialsProvider = FixedCredentialsProvider.create(credentials)
@@ -86,7 +86,7 @@ class SpeechToText1 : AppCompatActivity() {
             )
         } catch (e: IOException) {
             Log.e("kya", "InitException" + e.message)
-        }
+        }*/
     }
 
     private fun transcribeRecording(data: ByteArray) {
