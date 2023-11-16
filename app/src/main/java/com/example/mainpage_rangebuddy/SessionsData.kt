@@ -130,6 +130,7 @@ class SessionsData : AppCompatActivity() {
         val pyobj1 = py.getModule("bullet_coords")
         val pyobj2 = py.getModule("Grouping")
         val pyobj3 = py.getModule("Point_Calcs")
+        val pyobj4 = py.getModule("Actual_points")
         //sets variables  for image grabbing function
         val directoryPath = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/"
         val output_image = "/storage/emulated/0/Android/media/com.example.mainpage_rangebuddy/Main Page-Range Buddy/Bullet_Holes.jpg"
@@ -159,20 +160,23 @@ class SessionsData : AppCompatActivity() {
         Log.d("Python function bullet_coords is being ran", bullets_XnY.toString())
         Toast.makeText(this, "bullet_coords is finished running", Toast.LENGTH_LONG).show()
 
-        val bullet_group = pyobj2.callAttr("Grouping", bullets_XnY) // data to send to back end
-        val bullet_groupValue = bullet_group.toDouble()
-        Log.d("Python function Grouping is being ran", bullet_group.toString())
-        Toast.makeText(this, "Grouping is finished running", Toast.LENGTH_LONG).show()
-        //update text to be new text
-        val formatcals = String.format("Bullet Group: %.3f in", bullet_groupValue)
-        val bulletgroupTextView = findViewById<TextView>(R.id.Group_Size)
-        bulletgroupTextView.text = formatcals
-
         val point_calc = pyobj3.callAttr("Point_Calcs", bullets_XnY, bullet_image) //data to send to back end
         Log.d("Python function Point_Calcs is being ran", point_calc.toString())
         Toast.makeText(this, "Point_Calcs is finished running", Toast.LENGTH_LONG).show()
         val pointcalcTextView = findViewById<TextView>(R.id.Number_of_points)
         pointcalcTextView.text = "Point Calculation: $point_calc"
+
+        val actual_points = pyobj3.callAttr("Actual_points", bullets_XnY, bullet_image)
+        Log.d("Python function Actual_points is being ran", actual_points.toString())
+        val bullet_group = pyobj2.callAttr("Grouping", actual_points) // data to send to back end
+        val bullet_groupValue = bullet_group.toDouble()
+        Log.d("Python function Grouping is being ran", bullet_group.toString())
+        Toast.makeText(this, "Grouping is finished running", Toast.LENGTH_LONG).show()
+        val formatcals = String.format("Bullet Group: %.3f in", bullet_groupValue)
+        val bulletgroupTextView = findViewById<TextView>(R.id.Group_Size)
+        bulletgroupTextView.text = formatcals
+
+
 
 
     }
