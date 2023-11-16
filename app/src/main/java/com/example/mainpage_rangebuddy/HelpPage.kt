@@ -13,6 +13,8 @@ class HelpPage : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        //this is a test to see if it allows me to push to git
+
         //hiding the title bar
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         supportActionBar?.hide()
