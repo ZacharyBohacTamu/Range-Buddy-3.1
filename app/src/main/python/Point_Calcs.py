@@ -15,7 +15,7 @@ def Point_Counting(bullet_hole_coordinates, input_image):
         # calculates the radius of the bullet hole from the center of the target
         bullet_from_center_radius = math.sqrt((Cx - Bx) ** 2 + (Cy - By) ** 2)
         print(f"bullet radius: {bullet_from_center_radius}")
-        Raidus_in = (bullet_from_center_radius / 80)  # 440 is the dpi for Pixel 3a
+        Raidus_in = (bullet_from_center_radius / 440)  # 440 is the dpi for Pixel 3a
         print(f"bullet radius in in: {Raidus_in}")
         # looks for which target is being used and calculates points based off of that
         #if Type_of_Target == "Pistol Target 25ft":  # may adjust once paper comes in
